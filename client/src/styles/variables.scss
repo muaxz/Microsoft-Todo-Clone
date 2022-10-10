@@ -1,0 +1,18 @@
+$backColor:green;
+$longWidth:150px;
+$randomNumber:100;
+
+.App{
+    background-color: yellow;
+}
+
+@function calculate(){
+    @return 10px;
+}
+
+@mixin trial(){
+    color:red;
+    border: 1px solid white;
+    @content
+}
+
