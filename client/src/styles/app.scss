@@ -1,7 +1,8 @@
 
 @import "./variables.scss";
 
-@mixin leftChild($borderColor){
+@mixin leftChild($rightPadding){
+    position: relative;
     display: flex;
     padding: 10px;
     margin-bottom: 10px;
@@ -9,9 +10,16 @@
     transition-duration: 150ms;
     &:hover{
         background-color: #ced4da;
+        padding-right: $rightPadding
+    };
+    &:hover .garbage-icon{
+        background-color: #ced4da;
+        display: block;
         color:white;
-    }
+    };
+
 }
+
 
 *{
    padding: 0px;
@@ -59,11 +67,17 @@
 }
 
 .left-column-child{
-   @include leftChild(white);
+   @include leftChild(30px);
+}
+
+.garbage-icon{
+    position: absolute;
+    display: none;
+    right: 5px;
 }
 
 .left-column-child-important{
-    @include leftChild(lightblue);
+    @include leftChild(10px);
 }
 
 
@@ -72,8 +86,36 @@
 }
 
 
-//....Right Column
+//................Right Column.................
+
+
 .right-column-outer{
+  position: relative;
   flex: 3;
   background-color: lightcoral;
+  padding: 10px;
+  background-image: url("../../public/leaves.jpg");
+  background-size: cover;
+}
+
+.todo-outer{
+    background-color: #f0fff1;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.todo-inner{
+    display: flex;
+    align-items: center;
+}
+
+.add-duty-part{
+    background-color: white;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    transform: translate(-50%,-50%);
+    left:50%;
 }

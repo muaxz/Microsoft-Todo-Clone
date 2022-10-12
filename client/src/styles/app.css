@@ -47,6 +47,7 @@
 }
 
 .left-column-child {
+  position: relative;
   display: flex;
   padding: 10px;
   margin-bottom: 10px;
@@ -55,10 +56,22 @@
 }
 .left-column-child:hover {
   background-color: #ced4da;
+  padding-right: 30px;
+}
+.left-column-child:hover .garbage-icon {
+  background-color: #ced4da;
+  display: block;
   color: white;
 }
 
+.garbage-icon {
+  position: absolute;
+  display: none;
+  right: 5px;
+}
+
 .left-column-child-important {
+  position: relative;
   display: flex;
   padding: 10px;
   margin-bottom: 10px;
@@ -67,10 +80,41 @@
 }
 .left-column-child-important:hover {
   background-color: #ced4da;
+  padding-right: 10px;
+}
+.left-column-child-important:hover .garbage-icon {
+  background-color: #ced4da;
+  display: block;
   color: white;
 }
 
 .right-column-outer {
+  position: relative;
   flex: 3;
   background-color: lightcoral;
+  padding: 10px;
+  background-image: url("../../public/leaves.jpg");
+  background-size: cover;
+}
+
+.todo-outer {
+  background-color: #f0fff1;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.todo-inner {
+  display: flex;
+  align-items: center;
+}
+
+.add-duty-part {
+  background-color: white;
+  border-radius: 5px;
+  max-width: 500px;
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  transform: translate(-50%, -50%);
+  left: 50%;
 }/*# sourceMappingURL=app.css.map */

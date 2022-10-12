@@ -1,16 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState ,useContext} from 'react';
 import {TextField,Button} from "@mui/material"
+import {CreateList} from "../../Api/requests"
+import {AppContextOrigin} from "../../context/app-context"
 
 interface Props{
     close:()=>void
 }
 
 export default function CreateListWindow(props:Props){
+
     const [nameValue,setNameValue] = useState<string>("")
+    const [loading,setLoading] = useState(false);
+    const {dispatch} = useContext(AppContextOrigin)
 
     const SubmitList=()=>{
-
+        setLoading(true)
+        CreateList({
+            listName:nameValue,
+            userId:"1",
+            setLoading:setLoading,
+            dispatch:dispatch
+        }).then((res)=>console.log(res))
     }
+
     return(
         <div>
             <div onClick={()=>props.close()} className="black-background"></div>
@@ -22,5 +34,4 @@ export default function CreateListWindow(props:Props){
             </div>
         </div>
     )
-
 }
