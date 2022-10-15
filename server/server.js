@@ -29,7 +29,7 @@ app.post("/createList",async (req,res,next)=>{
 
 
 app.post("/deleteList",async (req,res,next)=>{
-    console.log("inside")
+   
     try {
 
         const {listId} = req.body;
@@ -59,7 +59,7 @@ app.get("/getList",async(req,res,next)=>{
 })
 
 app.post("/createTodo",async (req,res,next)=>{
-
+   
     try {
 
         const {listId,text} = req.body;
@@ -71,14 +71,56 @@ app.post("/createTodo",async (req,res,next)=>{
 
         await newTodo.save()
 
-        return res.json({state:"success"})
+        return res.json({data:newTodo})
 
     } catch (error){
+        console.log(error)
         return next()
     }
 
 })
 
+app.post("/checkTodo",async (req,res,next)=>{
+
+    try {
+
+        const {todoId} = req.body;
+    
+        const newTodo = await Todos.findById(todoId)
+
+        newTodo.isDone = !newTodo.isDone;
+
+        await newTodo.save()
+
+        return res.json({state:"success"})
+
+    } catch (error){
+        console.log(error)
+        return next()
+    }
+})
+
+app.post("/updateTodo",async (req,res,next)=>{
+
+    try {
+
+        const {todoId,note,steps,Deadline} = req.body;
+        console.log(Deadline)
+        const newTodo = await Todos.findById(todoId)
+
+        newTodo.note = note;
+        newTodo.steps = steps;
+        newTodo.deadLine = Deadline
+
+        await newTodo.save()
+
+        return res.json({state:"success"})
+
+    } catch (error){
+        console.log(error)
+        return next()
+    }
+})
 
 app.get("/getTodos/:listId",async(req,res,next)=>{
 
@@ -86,12 +128,29 @@ app.get("/getTodos/:listId",async(req,res,next)=>{
 
     try {
       
-       const  relatedTodos = await Todos.find({_id:listId})
-
+       const  relatedTodos = await Todos.find({listId:listId},{text:true,isDone:true,listId:true,_id:true,deadLine:true})
+     
        return res.json({data:relatedTodos})
 
     } catch (error) {
-        
+       return next()
+    }
+
+})
+
+app.get("/getTodoDetail/:todoId",async(req,res,next)=>{
+
+    const {todoId} = req.params;
+
+    try {
+      
+       const selectedTodo = await Todos.findById(todoId,{note:true,steps:true,deadLine:true})
+
+       console.log(selectedTodo) 
+       return res.json({data:selectedTodo})
+
+    } catch (error) {
+       return next()
     }
 
 })

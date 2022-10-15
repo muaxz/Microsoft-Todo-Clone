@@ -6,15 +6,19 @@ const todoSchema = new mongoose.Schema({
         type:Boolean,
         default:false,
      },
-     Deadline:{
+     deadLine:{
         type:Date,
-        default:'0000-00-00'
+        default:'2002-12-09'
      },
-     notes:{
-        type:Array,
-        default:[]
+     note:{
+        type:String,
+        default:""
      },
-     listId:mongoose.SchemaTypes.ObjectId
+     steps:{
+        type:[{text:String,isDone:Boolean}],
+        default:[{text:"",isDone:false}]
+     },
+     listId:String
 })
 
 module.exports = mongoose.model("todos",todoSchema)

@@ -20,7 +20,7 @@ export default function CreateListWindow(props:Props){
             userId:"1",
             setLoading:setLoading,
             dispatch:dispatch
-        }).then((res)=>console.log(res))
+        }).then((res)=>props.close())
     }
 
     return(
