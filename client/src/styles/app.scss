@@ -110,9 +110,12 @@
 
 
 .todo-section{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(142, 236, 245, 0.5);
     overflow: auto;
     padding-right: 10px;
-    height: 700px;
+    height: 100vh;
     flex: 2;
 }
 
@@ -121,9 +124,10 @@
     margin-left: 10px;
     border-radius: 3px;
     padding: 10px;
-    flex: 0;
     transition-duration: 200ms;
     background-color: white;
+    overflow: hidden;
+    width: 0%;
     opacity: 0;
 }
 
@@ -182,8 +186,9 @@
     max-width: 500px;
     width: 100%;
     position: fixed;
+    transform: translate(-50%,-50%);
     bottom: 10px;
-    left:30%;
+    left:50%;
 }
 
 .middle-border{

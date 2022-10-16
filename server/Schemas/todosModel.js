@@ -1,7 +1,10 @@
 const mongoose = require("mongoose")
 
 const todoSchema = new mongoose.Schema({
-     text:String,
+     text:{
+       type:String,
+       required:true
+     },
      isDone:{
         type:Boolean,
         default:false,
@@ -14,11 +17,12 @@ const todoSchema = new mongoose.Schema({
         type:String,
         default:""
      },
-     steps:{
-        type:[{text:String,isDone:Boolean}],
-        default:[{text:"",isDone:false}]
-     },
-     listId:String
+     steps:[{text:String,isDone:Boolean}],
+     listId:String,
+     important:{
+       type:Boolean,
+       default:false
+     }
 })
 
 module.exports = mongoose.model("todos",todoSchema)

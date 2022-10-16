@@ -37,11 +37,8 @@ function Reducer(state:stateType,action:{type:string,payload:any}){
         case "select_currentList":
             return {...state,currentList:action.payload.listId}
         case "check_todo":
-            state.Todos.forEach((item)=>{
-                if(item._id === action.payload.todoId){
-                    item.isDone = !item.isDone
-                }
-            })
+            var todo = state.Todos.find((item)=>item._id === action.payload.todoId)
+            todo.isDone = !todo.isDone
             return {...state}    
         case "active_detail":
             state.detailActivate = true

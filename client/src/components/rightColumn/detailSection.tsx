@@ -32,11 +32,9 @@ export default function DetailSection(){
     }
 
     const AddStep=()=>{
-
-        if(textValue.length === 0 ) return;
-
-        dispatch({type:"add_step",payload:{text:textValue}})
         setTextValue("")
+        if(textValue.length === 0 ) return;
+        dispatch({type:"add_step",payload:{text:textValue}})
     }
 
     const CheckSteps=(index:number)=>{
@@ -63,7 +61,7 @@ export default function DetailSection(){
                         />}/>
                     </ListItem>)
                 })}
-                <div style={{paddingLeft:"20px"}}><TextField InputProps={{endAdornment:<Button size="small"  onClick={AddStep} startIcon={<Add></Add>} style={{textTransform:"capitalize"}}>Add</Button>}} onChange={(e)=>setTextValue(e.target.value)} variant="standard" size="small"></TextField></div>
+                <div style={{paddingLeft:"20px"}}><TextField value={textValue} InputProps={{endAdornment:<Button size="small"  onClick={AddStep} startIcon={<Add></Add>} style={{textTransform:"capitalize"}}>Add</Button>}} onChange={(e)=>setTextValue(e.target.value)} variant="standard" size="small"></TextField></div>
             </List>
             <div style={{paddingTop:"10px",paddingBottom:"20px"}}>
                 <span><b>Set a deadline</b></span>

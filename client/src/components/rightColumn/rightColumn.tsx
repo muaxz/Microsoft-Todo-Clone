@@ -22,18 +22,30 @@ export default function RightColumn(){
         })
 
     }
-
+    var completeController: boolean = false;
+    for (const item of state.Todos) {
+        if(item.isDone){
+            completeController = true;
+            break;
+        }
+    }
     return(
         <div className='right-column-outer'>
             <div className="todo-section">
                 <div className="right-column-inner">
-                    {state.Todos.map((item,index)=>{
+                    {state.Todos.length ? state.Todos.map((item,index)=>{
                         return (<>{!item.isDone ? <TodoElement deadLine={item.deadLine} isDone={item.isDone} todoId={item._id} text={item.text}></TodoElement> : null}</>)
-                    })}
-                    <div className="middle-border"></div>
-                    {state.Todos.map((item,index)=>{
-                        return (<>{item.isDone ? <TodoElement deadLine={item.deadLine} isDone={item.isDone} todoId={item._id} text={item.text}></TodoElement> : null}</>)
-                    })}
+                    }) : <div style={{textAlign:"center",color:"white"}}><h1>You do not have an assignment yet ):</h1></div>}
+                    {
+                        completeController && 
+
+                        (<>
+                            <div className="middle-border"></div>
+                            {state.Todos.map((item,index)=>{
+                                return (<>{item.isDone ? <TodoElement deadLine={item.deadLine} isDone={item.isDone} todoId={item._id} text={item.text}></TodoElement> : null}</>)
+                            })}
+                        </>)
+                    }
                 </div>
                 <div  className="add-duty-part">
                     <TextField 
