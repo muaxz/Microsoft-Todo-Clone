@@ -50,6 +50,7 @@ export default function RightColumn(){
                 <div  className="add-duty-part">
                     <TextField 
                         onChange={(e)=>setTodoTextValue(e.target.value)}
+                        value={todoTextValue}
                         InputProps={{
                         startAdornment: (
                             <InputAdornment style={{cursor:"pointer"}} position="start">

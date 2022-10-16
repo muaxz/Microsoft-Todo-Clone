@@ -46,7 +46,7 @@ export default function DetailSection(){
             <div style={{textAlign:"right"}}><span onClick={()=>dispatch({type:"deactive_detail"})}><Cancel style={{color:"lightgrey",cursor:"pointer"}}></Cancel></span></div>
             <div className="save-button"><Button style={{backgroundColor:"#06d6a0"}} onClick={SaveDetails} variant="contained">Save</Button></div>
             <TextField onChange={(e)=>setNoteValue(e.target.value)} value={noteValue} rows={5} multiline fullWidth placeholder='Attach a note'></TextField>
-            <div style={{paddingTop:"10px",paddingBottom:"10px"}}>
+            <div style={{paddingTop:"10px",paddingBottom:"10px",color:"#ef476f"}}>
                 <span><b>Add Steps</b></span>
             </div>    
             <List>
@@ -63,7 +63,7 @@ export default function DetailSection(){
                 })}
                 <div style={{paddingLeft:"20px"}}><TextField value={textValue} InputProps={{endAdornment:<Button size="small"  onClick={AddStep} startIcon={<Add></Add>} style={{textTransform:"capitalize"}}>Add</Button>}} onChange={(e)=>setTextValue(e.target.value)} variant="standard" size="small"></TextField></div>
             </List>
-            <div style={{paddingTop:"10px",paddingBottom:"20px"}}>
+            <div style={{paddingTop:"10px",paddingBottom:"20px",color:"#ef476f"}}>
                 <span><b>Set a deadline</b></span>
             </div>
             <div>

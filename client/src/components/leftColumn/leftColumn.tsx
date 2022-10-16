@@ -33,7 +33,7 @@ export default function LeftColumn (){
                 <div>
                     <div className="left-column-child-important">
                         <p>Important</p>
-                        <div style={{marginLeft:"auto"}}><StarBorder color="secondary"></StarBorder></div>
+                        <div style={{marginLeft:"auto"}}><StarBorder style={{color:"#ef233c"}}></StarBorder></div>
                     </div>
                     {state.newLists.map((item,index)=>{
                         return (<div onClick={()=>PopulateTodos(item._id)} key={index} className={`left-column-child ${state.currentList === item._id ? "selected-list" : ""}`}>
