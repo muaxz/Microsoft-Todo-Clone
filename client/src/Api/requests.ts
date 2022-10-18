@@ -1,6 +1,6 @@
 import axios from "axios"
 
-axios.defaults.baseURL = "http://localhost:3001/"
+axios.defaults.baseURL = process.env.NODE_ENV === "development" ?  "http://localhost:3001/" : "https://mongo-todo-app-soft.herokuapp.com/"
 
 export const CreateList = async (param:{listName:string,userId:string,setLoading:(value:boolean)=>void,dispatch:(value:any)=>void})=>{
 
