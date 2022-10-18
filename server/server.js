@@ -6,6 +6,7 @@ const TodoListModel = require("./Schemas/todoListModel")
 const Todos = require("./Schemas/todosModel")
 const app = express()
 const path = require("path")
+const PORT = process.env.PORT || 3001
 
 
 app.use(cors({origin:"http://localhost:3000"}))
@@ -167,4 +168,4 @@ app.get("*",()=>{
     return res.json({state:"error"})
 })
 
-app.listen(3001,()=>console.log("server listening..."))
+app.listen(PORT,()=>console.log("server listening..."))
