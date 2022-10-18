@@ -5,6 +5,7 @@ const User = require("./Schemas/usersModel")
 const TodoListModel = require("./Schemas/todoListModel")
 const Todos = require("./Schemas/todosModel")
 const app = express()
+const path = require("path")
 
 
 app.use(cors({origin:"http://localhost:3000"}))
@@ -155,6 +156,12 @@ app.get("/getTodoDetail/:todoId",async(req,res,next)=>{
 
 })
 
+app.use(express.static("public"))
+
+app.get("*",(req,res,next)=>{
+  res.sendFile(path.resolve(__dirname,"../public","index.html"))
+  //res.sendFile(path.resolve(__dirname,"public","index.html"))
+})
 
 app.get("*",()=>{
     return res.json({state:"error"})

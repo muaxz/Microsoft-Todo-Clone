@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4351eac3.css",
+    "main.js": "/static/js/main.1b29964e.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/leaves.jpg": "/static/media/leaves.99c5f19b72a621f3c728.jpg",
+    "index.html": "/index.html",
+    "main.4351eac3.css.map": "/static/css/main.4351eac3.css.map",
+    "main.1b29964e.js.map": "/static/js/main.1b29964e.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4351eac3.css",
+    "static/js/main.1b29964e.js"
+  ]
+}
