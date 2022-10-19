@@ -1,4 +1,5 @@
-import React,{createContext,useState,useReducer} from 'react';
+import React,{createContext,useState,useReducer, useEffect} from 'react'
+import {GetTodos} from "../Api/requests";
 
 
 interface Props{
@@ -80,6 +81,11 @@ export const AppContextOrigin = createContext<{state:stateType,dispatch:any}>({
 export default function AppContext(props:Props){
     
     const [state,dispatch] = useReducer(Reducer,InitialState)
+
+    useEffect(()=>{
+        GetTodos("6346484fc3ca7bf9410ea1bf",dispatch)
+        dispatch({type:"select_currentList",payload:{listId:"6346484fc3ca7bf9410ea1bf"}})
+    },[])
 
     return(
 
